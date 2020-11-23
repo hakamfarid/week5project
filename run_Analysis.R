@@ -29,7 +29,7 @@ colnames(subject_train) = "subjectId"
 colnames(subject_test) = "subjectId"
 colnames(xtrain) = features[,2]
 colnames(xtest) = features[,2]
-colnames(activityLabels)=c("activity ID", "activity type")
+colnames(activityLabels)=c("activityId", "activity type")
 
 ##merge training and test sets 
 X <- rbind(xtrain, xtest)
@@ -44,4 +44,6 @@ setForMeanAndStd <- Merged_Data[ , mean_stdev == TRUE]
 
 ##get the average for each variable for each subject and each activity
 setWithActivityNames = merge(setForMeanAndStd, activityLabels, by='activityId', all.x=TRUE)
-res = tapply(setWithActivityNames$activityId, setWithActivityNames$subjectId, mean, na.rm=T)
+total_mean <- setWithActivityNames %>% group_by(activityId, subjectId) %>% summarize_each(funs(mean))
+
+write.table(total_mean, file = "./UCI HAR Dataset/tidydata.txt", row.names = FALSE)
