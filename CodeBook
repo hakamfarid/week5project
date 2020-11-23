@@ -1,0 +1,22 @@
+Tidy data final text file is a dataset consisting of 180 rows and 82 columns containing an average value for each variable for each activity and subject.
+
+The original data was obtained through waist worn Samsung devices using the internal accelorometers and gyroscopes in the device. Here is a link to where the data was obtained from: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+From the original dataset, only the variables measuring some sort of mean or sandard deviation were kept.
+The subject.txt file consists of a single column with subject IDs, data was collected on 30 subjects and so this data ranges from 1 to 30 
+ActivityLables folder is a text file consisting of a key of activities and the corresponding IDs as follows:
+1     WALKING
+2     WALKING_UPSTAIRS
+3     WALKING_DOWNSTAIRS
+4     SITTING
+5     STANDING
+6     LAYING
+
+features.txt folder consists of all the names of the variables that are measured, this was used as the column names for the Merged_Data dataset 
+
+Other dataframes used with the code and are needed for the run_Analysis.R function are:
+train/X_train.txt': Training set.
+'train/y_train.txt': Training labels.
+'test/X_test.txt': Test set.
+'test/y_test.txt': Test labels.
+
+These along with the subject test/train folders were all combined in the R code to use as one tidy dataset that is ready to use for data science projects
